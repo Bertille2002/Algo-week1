@@ -6,5 +6,5 @@ def display_menu():
     print("3. Delete a product")
     print("4. Search for a specific product")
     print("5. Close file")
-    input = input("Enter your choice (1-4): ")
-    return input
+    option = input("Enter your choice (1-4): ")
+    return option

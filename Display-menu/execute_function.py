@@ -1,15 +1,17 @@
 ### function to execute everything ###
 import csv
+from functions import *
+
 def main():
-  produits = produits.csv
+  produits = 'produits.csv'
   while True :
-    input = display_menu
+    input = display_menu()
     if input == "1" :
       view_names(produits)
     elif input == "2" :
       new_product(produits)
     elif input == "3" :
-      delete_product(produits)
+      delete_product(produits, row_to_delete)
     elif input == "4" :
       binary_search(produits)
     elif input == "5" :

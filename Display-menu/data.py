@@ -1,5 +1,6 @@
 ### create data file ###
 import csv
+
 data = [
     [1,"pomme","5","18.2","12-05-24"],
     [2,"oeuf","9","43.1","27-12-24"],
