@@ -8,12 +8,12 @@ def display_menu():
     print("3. Delete a product")
     print("4. Search for a specific product")
     print("5. Close file")
-    option = input("Enter your choice (1-4): ")
+    option = input("Enter your choice (1-5): ")
     return option
 
 # view products
 def view_names(produits) :
-  with open(produits, 'r') as file :
+  with open('produits.csv', 'r') as file :
     reader = csv.DictReader(file)
     print("List of products : ")
     for row in reader : 
