@@ -1,4 +1,4 @@
-### create data file ###
+### Création d'un fichier pour enregistrer nos données###
 import csv
 
 data = [

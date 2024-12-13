@@ -32,3 +32,41 @@ def sorted_table(data) :
 
 quicksort(data, 0, len(data) - 1)
 sorted_table(data)
+
+
+def quicksort(produits, low, high) :
+  try :
+    with open('produits.csv','r') as file :
+      reader = csv.reader(file)
+      header = next(reader)
+      data = list(reader)
+  except FileNotFoundError :
+    print(f"Error: file '{'produits.csv'}' does not exist")
+    return
+  except Exception as e :
+    print(f"Error: {e}")
+    return
+  if low < high :
+    pi = partition(data, low, high)
+    quicksort('produits.csv', low, pi - 1)
+    quicksort('produits.csv', pi + 1, high)
+  sorted_table(data)
+  with open('produits.csv','w', newline='') as file :
+    writer = csv.writer(file)
+    writer.writerow(header)
+    writer.writerows(data)
+
+def partition(data, low, high) :
+  pivot = float(data[high][2])
+  i = low - 1
+  for j in range(low, high) :
+    if float(data[j][2]) <= pivot :
+      i += 1
+      data[i], data[j] = data[j], data[i]
+  data[i + 1], data[high] = data[high], data[i + 1]
+  return i + 1
+
+def sorted_table(data) :
+  print("Sorted Data by Quantity : ")
+  for row in data :
+    print(row)
