@@ -103,7 +103,7 @@ def binary_search() :
                 # Si l'élément mid est inférieur a celui de la recherche, on réduit la partie fin de la liste
             else :
                 high = mid - 1
-                # Si l'élément mid est supèrieur a celui de la recherche, on réduit la partie début de la liste
+                # Si l'élément mid est supérieur a celui de la recherche, on réduit la partie début de la liste
         print(f"Product '{product_name}' not found.") # Réponse si le produit n'est pas trouvé
         return None 
     except FileNotFoundError :
@@ -143,25 +143,26 @@ sorted_data = quicksort(data)
 # merge sort price
 def merge_sort(data, key_index) :
   if len(data) > 1 :
-    mid = len(data) // 2
+    mid = len(data) // 2 # Trouver le milieu la liste
     left_half = data[:mid]
     right_half = data[mid:]
+    # Division de la liste
     merge_sort(left_half, key_index)
     merge_sort(right_half, key_index)
-    i = j = k = 0
-    while i < len(left_half) and j < len(right_half) :
-      if float(left_half[i][key_index]) < float(right_half[i][key_index]) :
-        data[k] = left_half[i]
-        i += 1
+    i = j = k = 0 # Initialisation des indices 
+    while i < len(left_half) and j < len(right_half) : #Fusionne les deux moitiées dans la liste principale
+      if float(left_half[i][key_index]) < float(right_half[i][key_index]) : #Compare les valeurs sur la clé index
+        data[k] = left_half[i] #Si la valeur de gauche est plus petite elle sera placée dans la liste déjà triée
+        i += 1 # Bouge l'index de gauche en avant 
       else :
-        data[k] = right_half[j]
-        j += 1
-      k += 1
-    while i < len(left_half) :
+        data[k] = right_half[j] #Si la valeur de gauche est plus petite ou égale elle sera placée dans la liste triée
+        j += 1 # Bouge l'index de droite en avant
+      k += 1 #Avance l'index de la liste principale 
+    while i < len(left_half) : #Si il reste des éléments dans la moitié de gauche, ils sont ajoutés dans la liste triée
       data[k] = left_half[i]
       i += 1
       k += 1
-    while j < len(right_half) :
+    while j < len(right_half) : #Si il reste des éléments dans le moitié de droite, ils seront ajoutés dans la liste triée
       data[k] = right_half[j]
       j += 1
       k += 1
