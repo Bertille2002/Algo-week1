@@ -16,17 +16,17 @@ def tri_rapide(data, low, high) :
     quicksort(data, pi + 1, high)
 
 def partition(data, low, high) :
-  pivot = float(data[high][3])
+  pivot = float(data[high][2])
   i = low - 1
   for j in range(low, high) :
-    if float(data[j][3]) <= pivot :
+    if float(data[j][2]) <= pivot :
       i += 1
       data[i], data[j] = data[j], data[i]
   data[i + 1], data[high] = data[high], data[i + 1]
   return i + 1
 
 def sorted_table(data) :
-  print("Sorted Data by Price : ")
+  print("Sorted Data by Quantity : ")
   for row in data :
     print(row)
 

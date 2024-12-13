@@ -12,7 +12,7 @@ data = [
 
 with open('produits.csv', 'w', newline='') as file :
     writer = csv.writer(file)
-    field = ["ID","P_name", "P_quatity", "P_price (in $/Kg)", "expiration_date"]
+    field = ["ID","P_name", "P_quantity", "P_price (in $/Kg)", "expiration_date"]
     writer.writerow(field)
     writer.writerows(data)
 
